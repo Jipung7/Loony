@@ -1,0 +1,524 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --app-font: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: var(--app-font);
+  }
+
+  html[data-font-style='normal'] {
+    --app-font: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  html[data-font-style='rounded'] {
+    --app-font: 'Quicksand', 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  html[data-font-style='system'] {
+    --app-font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background: transparent !important;
+    overflow: hidden;
+    user-select: none;
+    font-family: var(--app-font);
+  }
+}
+
+.font-marshmallow {
+  font-family: var(--app-font);
+}
+
+/* Kapsul Hitam Obsidian Pekat Tanpa Garis Putih (Menyatu Mulus dengan Bezel Layar) */
+.capsule-glass {
+  background: #08080c;
+  border: none;
+  box-shadow:
+    0 18px 42px -8px rgba(0, 0, 0, 0.82),
+    0 4px 14px -2px rgba(0, 0, 0, 0.65);
+}
+
+/* Jendela Besar Pure Obsidian Tanpa Garis Putih Kaku */
+.window-glass {
+  background: #08080c;
+  border: none;
+  box-shadow:
+    0 28px 72px -12px rgba(0, 0, 0, 0.92),
+    0 8px 28px -4px rgba(0, 0, 0, 0.75);
+  will-change: transform, opacity;
+}
+
+/* Kotak Bento Melengkung Lembut Tanpa Garis Putih */
+.capsule-inner {
+  background: #101017;
+  border: none;
+  border-radius: 18px;
+}
+
+.capsule-btn {
+  background: rgba(255, 255, 255, 0.055);
+  border: none;
+  transition: all 150ms ease;
+}
+
+.capsule-btn:hover {
+  background: rgba(255, 255, 255, 0.11);
+}
+
+/* =========================================================================
+   MATA HOLOGRAM LOONY: OTOMATIS ADAPTIF ANTARA TEMA GELAP & TEMA TERANG
+   ========================================================================= */
+.loony-eye-lens {
+  background: linear-gradient(180deg, #ffffff 0%, #e4e4e7 100%);
+  box-shadow: 0 0 9px rgba(244, 244, 245, 0.34), 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.loony-eye-bridge {
+  background-color: #f4f4f5;
+  box-shadow: 0 0 6px rgba(244, 244, 245, 0.28);
+}
+
+.loony-headset-arch {
+  box-shadow: 0 -1px 0 1.5px #08080c;
+}
+
+.loony-headset-pad-l {
+  box-shadow: 0 0 0 2px #08080c, -2px 0 6px rgba(34, 211, 238, 0.45);
+}
+
+.loony-headset-pad-r {
+  box-shadow: 0 0 0 2px #08080c, 2px 0 6px rgba(34, 211, 238, 0.45);
+}
+
+/* =========================================================================
+   MESIN TEMA TERANG NATIVE CSS (0% BEBAN CPU / TANPA RE-RENDER KOMPONEN)
+   Menggunakan palet Warm Paper White (#f6f6f9) agar mata tidak silau
+   ========================================================================= */
+[data-theme='light'].window-glass,
+[data-theme='light'] .window-glass {
+  background: #f6f6f9;
+  color: #18181b;
+  box-shadow:
+    0 28px 72px -12px rgba(15, 23, 42, 0.22),
+    0 8px 28px -4px rgba(15, 23, 42, 0.12),
+    0 0 0 1px rgba(15, 23, 42, 0.08);
+}
+
+[data-theme='light'].capsule-glass,
+[data-theme='light'] .capsule-glass {
+  background-color: #f6f6f9 !important;
+  color: #18181b;
+  box-shadow:
+    0 18px 40px -8px rgba(15, 23, 42, 0.22),
+    0 4px 14px -2px rgba(15, 23, 42, 0.12),
+    0 0 0 1px rgba(15, 23, 42, 0.09);
+}
+
+[data-theme='light'] .capsule-inner {
+  background: #ebebf0;
+}
+
+[data-theme='light'] .capsule-btn {
+  background: rgba(15, 23, 42, 0.055);
+  color: #18181b;
+}
+
+[data-theme='light'] .capsule-btn:hover {
+  background: rgba(15, 23, 42, 0.1);
+}
+
+/* Mata Loony menjadi Charcoal Pekat Berkilau saat permukaan bertema Terang */
+[data-theme='light'] .loony-eye-lens {
+  background: linear-gradient(180deg, #27272a 0%, #09090b 100%);
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.22);
+}
+
+[data-theme='light'] .loony-eye-bridge {
+  background-color: #18181b;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.18);
+}
+
+[data-theme='light'] .loony-headset-arch {
+  border-color: #3f3f46;
+  box-shadow: 0 -1px 0 1.5px #f6f6f9;
+}
+
+[data-theme='light'] .loony-headset-pad-l {
+  box-shadow: 0 0 0 2px #f6f6f9, -2px 0 6px rgba(8, 145, 178, 0.35);
+}
+
+[data-theme='light'] .loony-headset-pad-r {
+  box-shadow: 0 0 0 2px #f6f6f9, 2px 0 6px rgba(8, 145, 178, 0.35);
+}
+
+/* Konversi Permukaan Sekunder & Sidebar di Tema Terang */
+[data-theme='light'] .bg-\[\#0a0a10\]\/50 {
+  background-color: #eeeef3 !important;
+}
+
+[data-theme='light'] .bg-\[\#12121a\],
+[data-theme='light'] .bg-\[\#09090d\],
+[data-theme='light'] .bg-zinc-950,
+[data-theme='light'] .bg-zinc-900,
+[data-theme='light'] .bg-zinc-800 {
+  background-color: #ffffff !important;
+  color: #18181b;
+}
+
+/* Konversi Latar Transparan Putih -> Transparan Slate Halus di Tema Terang */
+[data-theme='light'] .bg-white\/\[0\.02\] {
+  background-color: rgba(15, 23, 42, 0.03) !important;
+}
+[data-theme='light'] .bg-white\/\[0\.03\] {
+  background-color: rgba(15, 23, 42, 0.04) !important;
+}
+[data-theme='light'] .bg-white\/\[0\.04\] {
+  background-color: rgba(15, 23, 42, 0.05) !important;
+}
+[data-theme='light'] .bg-white\/\[0\.05\] {
+  background-color: rgba(15, 23, 42, 0.06) !important;
+}
+[data-theme='light'] .bg-white\/\[0\.06\],
+[data-theme='light'] .bg-white\/\[0\.07\] {
+  background-color: rgba(15, 23, 42, 0.075) !important;
+}
+[data-theme='light'] .bg-white\/\[0\.08\],
+[data-theme='light'] .bg-white\/\[0\.09\],
+[data-theme='light'] .bg-white\/\[0\.1\],
+[data-theme='light'] .bg-white\/10 {
+  background-color: rgba(15, 23, 42, 0.095) !important;
+}
+
+[data-theme='light'] .hover\:bg-white\/\[0\.02\]:hover,
+[data-theme='light'] .hover\:bg-white\/\[0\.03\]:hover,
+[data-theme='light'] .hover\:bg-white\/\[0\.04\]:hover,
+[data-theme='light'] .hover\:bg-white\/\[0\.05\]:hover,
+[data-theme='light'] .hover\:bg-white\/\[0\.06\]:hover,
+[data-theme='light'] .hover\:bg-white\/\[0\.07\]:hover,
+[data-theme='light'] .hover\:bg-white\/\[0\.08\]:hover,
+[data-theme='light'] .hover\:bg-white\/\[0\.09\]:hover,
+[data-theme='light'] .hover\:bg-white\/\[0\.1\]:hover,
+[data-theme='light'] .hover\:bg-white\/10:hover {
+  background-color: rgba(15, 23, 42, 0.09) !important;
+}
+
+[data-theme='light'] .focus-within\:bg-white\/\[0\.07\]:focus-within,
+[data-theme='light'] .focus\:bg-white\/\[0\.07\]:focus,
+[data-theme='light'] .focus\:bg-white\/\[0\.08\]:focus {
+  background-color: rgba(15, 23, 42, 0.085) !important;
+}
+
+/* Konversi Tipografi Kontras Tajam di Tema Terang */
+[data-theme='light'] .text-zinc-100,
+[data-theme='light'] .text-zinc-200,
+[data-theme='light'] .text-white {
+  color: #18181b !important;
+}
+
+[data-theme='light'] .text-zinc-300 {
+  color: #3f3f46 !important;
+}
+
+[data-theme='light'] .text-zinc-400 {
+  color: #52525b !important;
+}
+
+[data-theme='light'] .text-zinc-500,
+[data-theme='light'] .text-zinc-600,
+[data-theme='light'] .text-zinc-700 {
+  color: #71717a !important;
+}
+
+[data-theme='light'] .placeholder\:text-zinc-500::placeholder,
+[data-theme='light'] .placeholder\:text-zinc-600::placeholder {
+  color: #a1a1aa !important;
+}
+
+/* Tombol Pil Aktif & Switch Aktif (Berbalik Menjadi Charcoal Kontras di Tema Terang) */
+[data-theme='light'] .bg-zinc-100.text-zinc-950,
+[data-theme='light'] .bg-zinc-200.text-zinc-950 {
+  background-color: #18181b !important;
+  color: #fafafa !important;
+}
+
+[data-theme='light'] .bg-zinc-100.text-zinc-950 .text-zinc-950 {
+  color: #fafafa !important;
+}
+
+[data-theme='light'] .bg-zinc-100.text-zinc-950 .text-zinc-600 {
+  color: #d4d4d8 !important;
+}
+
+[data-theme='light'] .loony-toggle-on {
+  background-color: #18181b !important;
+}
+
+[data-theme='light'] .loony-toggle-thumb-on {
+  background-color: #fafafa !important;
+}
+
+/* Garis Pemisah (Borders & Dividers) Halus di Tema Terang */
+[data-theme='light'] .border-white\/\[0\.04\],
+[data-theme='light'] .border-white\/\[0\.05\],
+[data-theme='light'] .border-white\/\[0\.06\],
+[data-theme='light'] .border-white\/\[0\.08\],
+[data-theme='light'] .border-white\/10 {
+  border-color: rgba(15, 23, 42, 0.085) !important;
+}
+
+[data-theme='light'] .divide-white\/\[0\.03\] > :not([hidden]) ~ :not([hidden]),
+[data-theme='light'] .divide-white\/\[0\.04\] > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(15, 23, 42, 0.075) !important;
+}
+
+/* Warna Aksen Ikon Lebih Kontras di Atas Latar Terang */
+[data-theme='light'] .text-emerald-400,
+[data-theme='light'] .text-emerald-400\/90,
+[data-theme='light'] .text-emerald-300 {
+  color: #059669 !important;
+}
+[data-theme='light'] .text-amber-400,
+[data-theme='light'] .text-amber-400\/90 {
+  color: #d97706 !important;
+}
+[data-theme='light'] .text-rose-400,
+[data-theme='light'] .text-rose-300 {
+  color: #e11d48 !important;
+}
+[data-theme='light'] .text-sky-400,
+[data-theme='light'] .text-sky-400\/90 {
+  color: #0284c7 !important;
+}
+[data-theme='light'] .text-violet-400,
+[data-theme='light'] .text-violet-400\/90 {
+  color: #7c3aed !important;
+}
+[data-theme='light'] .text-cyan-400,
+[data-theme='light'] .text-cyan-400\/90 {
+  color: #0891b2 !important;
+}
+[data-theme='light'] .text-indigo-400,
+[data-theme='light'] .text-indigo-400\/90,
+[data-theme='light'] .text-indigo-300 {
+  color: #4f46e5 !important;
+}
+
+[data-theme='light'] ::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.18);
+}
+
+/* Loop Halus Breathing Aura (100% GPU Opacity Tanpa Patah-Patah) */
+@keyframes auraBreathe {
+  0% {
+    opacity: 0.08;
+  }
+  50% {
+    opacity: 0.26;
+  }
+  100% {
+    opacity: 0.08;
+  }
+}
+
+.aura-breathe-loop {
+  animation: auraBreathe var(--aura-duration, 2.4s) cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: opacity;
+}
+
+/* Opsi 3: Retro-Digital Hardware LED Dot Pulse (Teenage Engineering / ThinkPad style) */
+@keyframes ledPulse {
+  0% {
+    opacity: 0.35;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+  100% {
+    opacity: 0.35;
+    transform: scale(0.92);
+  }
+}
+
+.led-pulse-loop {
+  animation: ledPulse 1.3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: opacity, transform;
+}
+
+/* Loop Halus Tanpa Patah-Patah untuk Mengantuk & Tidur */
+@keyframes drowsySway {
+  0% {
+    transform: translate3d(0px, 0px, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(0px, 2.2px, 0) rotate(2.2deg);
+  }
+}
+
+@keyframes sleepBreathe {
+  0% {
+    transform: translate3d(0px, 0.5px, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(0px, 2.4px, 0) scale(0.97);
+  }
+}
+
+.mascot-drowsy-loop {
+  animation: drowsySway 1.9s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.mascot-sleep-loop {
+  animation: sleepBreathe 2.4s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes musicGroove {
+  0% {
+    transform: translate3d(0px, -0.8px, 0) rotate(-2deg);
+  }
+  100% {
+    transform: translate3d(0px, 1.5px, 0) rotate(2deg);
+  }
+}
+
+.mascot-music-loop {
+  animation: musicGroove 0.6s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* Animasi Piringan Vinyl & Equalizer Bar Musik */
+@keyframes vinylSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-vinyl-spin {
+  animation: vinylSpin 4.5s linear infinite;
+}
+
+@keyframes eqPulse1 {
+  0%, 100% {
+    height: 4px;
+  }
+  50% {
+    height: 12px;
+  }
+}
+
+@keyframes eqPulse2 {
+  0%, 100% {
+    height: 11px;
+  }
+  40% {
+    height: 4px;
+  }
+  80% {
+    height: 13px;
+  }
+}
+
+@keyframes eqPulse3 {
+  0%, 100% {
+    height: 6px;
+  }
+  60% {
+    height: 12px;
+  }
+}
+
+.eq-bar-1 {
+  animation: eqPulse1 0.75s ease-in-out infinite;
+}
+
+.eq-bar-2 {
+  animation: eqPulse2 0.65s ease-in-out infinite;
+}
+
+.eq-bar-3 {
+  animation: eqPulse3 0.85s ease-in-out infinite;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+}
+
+/* =========================================================================
+   SKALA PROPORSIONAL KHUSUS MODE LAYAR PENUH (FULL SCREEN)
+   Memperbesar ukuran font, ikon SVG, dan elemen interaktif secara otomatis
+   tanpa membebani CPU atau membuat tampilan terlihat terlalu kecil di monitor.
+   ========================================================================= */
+.window-fullscreen-scale .text-\[9px\],
+.window-fullscreen-scale .text-\[9\.5px\] {
+  font-size: 11px !important;
+  line-height: 1.45 !important;
+}
+
+.window-fullscreen-scale .text-\[10px\],
+.window-fullscreen-scale .text-\[10\.5px\] {
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+}
+
+.window-fullscreen-scale .text-\[11px\] {
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+}
+
+.window-fullscreen-scale .text-xs {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+
+.window-fullscreen-scale .text-sm {
+  font-size: 16px !important;
+  line-height: 1.55 !important;
+}
+
+.window-fullscreen-scale .text-2xl {
+  font-size: 30px !important;
+  line-height: 1.25 !important;
+}
+
+.window-fullscreen-scale svg.w-2\.5.h-2\.5 {
+  width: 0.8rem !important;
+  height: 0.8rem !important;
+}
+
+.window-fullscreen-scale svg.w-3.h-3 {
+  width: 0.95rem !important;
+  height: 0.95rem !important;
+}
+
+.window-fullscreen-scale svg.w-3\.5.h-3\.5 {
+  width: 1.1rem !important;
+  height: 1.1rem !important;
+}
+
+.window-fullscreen-scale svg.w-4.h-4 {
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+}
+
+.window-fullscreen-scale .h-6 {
+  height: 2rem !important;
+}
+

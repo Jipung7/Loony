@@ -1,0 +1,12 @@
+node_modules/
+dist/
+scratch/
+.npm/
+android-app/.gradle/
+android-app/build/
+android-app/app/build/
+*.log
+.env
+.env.*
+.DS_Store
+Thumbs.db
