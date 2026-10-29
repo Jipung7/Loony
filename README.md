@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="#-download--get-started"><img src="https://img.shields.io/badge/Release-v1.0.0-6366f1?style=flat-square" alt="Version"></a>
+  <a href="#-download--get-started"><img src="https://img.shields.io/badge/Release-v1.0.1-6366f1?style=flat-square" alt="Version"></a>
   <a href="#"><img src="https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011-0078d4?style=flat-square" alt="Windows"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-emerald?style=flat-square" alt="License"></a>
   <a href="#"><img src="https://img.shields.io/badge/Privacy-100%25%20Offline--First-amber?style=flat-square" alt="Offline First"></a>
@@ -102,8 +102,8 @@ Loony is 100% free and open-source. Choose the package that fits your workflow:
 
 | Package | Best For | Description |
 | :--- | :--- | :--- |
-| **[🚀 Loony Setup (v1.0.0)](https://github.com/Jipung7/Loony/releases/latest)** | **Recommended for Daily Use** | Standard Windows installer (.exe). Sets up desktop shortcuts and clean uninstall options. |
-| **[📦 Loony Portable (v1.0.0)](https://github.com/Jipung7/Loony/releases/latest)** | **Travelers & Flash Drives** | Single standalone .exe. No installation required—just click and run anywhere. |
+| **[🚀 Loony Setup (v1.0.1)](https://github.com/Jipung7/Loony/releases/latest)** | **Recommended for Daily Use** | Standard Windows installer (.exe). Sets up desktop shortcuts and clean uninstall options. |
+| **[📦 Loony Portable (v1.0.1)](https://github.com/Jipung7/Loony/releases/latest)** | **Travelers & Flash Drives** | Single standalone .exe. No installation required—just click and run anywhere. |
 
 ### System Requirements
 - **OS:** Windows 10 (64-bit) or Windows 11.

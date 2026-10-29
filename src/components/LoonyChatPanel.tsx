@@ -368,7 +368,7 @@ export const LoonyChatPanel: React.FC<LoonyChatPanelProps> = ({
           if (msg.sender === 'user') {
             return (
               <div key={msg.id} className="flex justify-end">
-                <div className="max-w-[85%] px-3 py-1.5 rounded-2xl rounded-tr-sm bg-white/[0.06] text-zinc-200 text-xs leading-relaxed">
+                <div className="max-w-[85%] px-3 py-1.5 rounded-2xl rounded-tr-sm bg-white/[0.06] text-zinc-200 text-xs leading-relaxed select-text">
                   {msg.text}
                 </div>
               </div>
@@ -384,7 +384,7 @@ export const LoonyChatPanel: React.FC<LoonyChatPanelProps> = ({
                   }`}
                 />
                 <div
-                  className={`text-xs leading-relaxed ${
+                  className={`text-xs leading-relaxed select-text ${
                     isLatestLoony ? 'text-zinc-100' : 'text-zinc-400'
                   }`}
                 >

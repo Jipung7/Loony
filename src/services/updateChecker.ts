@@ -3,7 +3,7 @@
  * Memeriksa pembaruan rilis resmi Loony dari repositori GitHub: Jipung7/Loony
  */
 
-export const CURRENT_APP_VERSION = '1.0.0';
+export const CURRENT_APP_VERSION = '1.0.1';
 export const GITHUB_REPO = 'Jipung7/Loony';
 export const GITHUB_LATEST_RELEASE_API = `https://api.github.com/repos/${GITHUB_REPO}/releases/latest`;
 export const GITHUB_RELEASES_PAGE = `https://github.com/${GITHUB_REPO}/releases`;

@@ -58,8 +58,8 @@ export const QrPairingModal: React.FC<QrPairingModalProps> = ({
               </div>
               <div className="text-[11px] text-zinc-400">
                 {isEn
-                  ? 'Scan QR to open on mobile (via local Wi-Fi or cellular data).'
-                  : 'Scan QR untuk membuka di HP (Otomatis via Wi-Fi lokal atau kuota data).'}
+                  ? 'Scan QR with phone. Ensure Phone & PC are on the same Wi-Fi or Hotspot.'
+                  : 'Scan QR dengan HP. Pastikan HP & Laptop di jaringan Wi-Fi atau Hotspot yang sama.'}
               </div>
             </div>
 

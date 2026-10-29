@@ -14,6 +14,7 @@ import {
   Lightbulb,
 } from 'lucide-react';
 import { useApp } from '../../../context/AppContext';
+import { copyToClipboard } from '../../../utils/clipboard';
 import { IdeaTag } from '../../../types';
 
 export interface BridgeTabProps {
@@ -61,8 +62,7 @@ export const BridgeTab: React.FC<BridgeTabProps> = ({
     if (externalOnCopyText) {
       externalOnCopyText(id, text);
     } else {
-      navigator.clipboard?.writeText(text).catch(() => {});
-      window.electronAPI?.writeClipboard(text);
+      copyToClipboard(text);
       setLocalCopiedId(id);
       window.setTimeout(() => setLocalCopiedId(null), 1300);
     }

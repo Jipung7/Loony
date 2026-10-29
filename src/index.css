@@ -33,6 +33,13 @@
   font-family: var(--app-font);
 }
 
+/* Izinkan teks yang perlu dicopy/diblok bisa diseleksi (terutama di Mobile Companion & Catatan) */
+.select-text,
+.selectable-content {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+}
+
 /* Kapsul Hitam Obsidian Pekat Tanpa Garis Putih (Menyatu Mulus dengan Bezel Layar) */
 .capsule-glass {
   background: #08080c;

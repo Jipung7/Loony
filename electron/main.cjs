@@ -385,9 +385,37 @@ function startLocalBridgeServer() {
   }
 }
 
+function getResolvedScriptPath(scriptName) {
+  const directPath = path.join(__dirname, scriptName);
+  if (!directPath.includes('app.asar')) {
+    return directPath;
+  }
+
+  // 1. Coba app.asar.unpacked
+  const unpackedPath = directPath.replace('app.asar', 'app.asar.unpacked');
+  if (fs.existsSync(unpackedPath)) {
+    return unpackedPath;
+  }
+
+  // 2. Fallback: Ekstrak isi script dari dalam asar ke folder temp OS
+  try {
+    const tempDir = path.join(os.tmpdir(), 'loony-scripts');
+    if (!fs.existsSync(tempDir)) {
+      fs.mkdirSync(tempDir, { recursive: true });
+    }
+    const tempScriptPath = path.join(tempDir, scriptName);
+    const content = fs.readFileSync(directPath);
+    fs.writeFileSync(tempScriptPath, content);
+    return tempScriptPath;
+  } catch (err) {
+    console.error('Failed to resolve script path from asar:', err);
+    return directPath;
+  }
+}
+
 function runMediaHelper(action = 'status') {
   return new Promise((resolve) => {
-    const scriptPath = path.join(__dirname, 'media-helper.ps1');
+    const scriptPath = getResolvedScriptPath('media-helper.ps1');
     execFile(
       'powershell.exe',
       ['-NoProfile', '-NonInteractive', '-ExecutionPolicy', 'Bypass', '-File', scriptPath, '-Action', action],
@@ -412,7 +440,7 @@ function runMediaHelper(action = 'status') {
 function startSystemSensor() {
   if (sensorProc) return;
   try {
-    const sensorScript = path.join(__dirname, 'system-sensor.ps1');
+    const sensorScript = getResolvedScriptPath('system-sensor.ps1');
     sensorProc = spawn(
       'powershell.exe',
       ['-NoProfile', '-NonInteractive', '-ExecutionPolicy', 'Bypass', '-File', sensorScript, '-LoonyPid', String(process.pid)],
@@ -485,7 +513,7 @@ function createWindow() {
     focusable: true,
     skipTaskbar: true,
     hasShadow: false,
-    icon: path.join(__dirname, '../public/icon.png'),
+    icon: path.join(__dirname, 'icon.ico'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.cjs'),
       contextIsolation: true,
@@ -891,16 +919,37 @@ function updateTrayMenu() {
 function createSystemTray() {
   if (tray) return;
   try {
-    const iconPath = path.join(__dirname, '../public/icon.png');
-    let trayIcon = null;
-    if (fs.existsSync(iconPath)) {
-      trayIcon = nativeImage.createFromPath(iconPath);
-      if (!trayIcon.isEmpty()) {
-        trayIcon = trayIcon.resize({ width: 18, height: 18 });
+    const iconCandidates = [
+      path.join(__dirname, 'icon.ico'),
+      path.join(__dirname, 'icon.png'),
+      path.join(__dirname, '../public/icon.ico'),
+      path.join(__dirname, '../public/icon.png'),
+      path.join(__dirname, '../dist/icon.png'),
+    ];
+
+    let chosenPath = null;
+    for (const c of iconCandidates) {
+      if (fs.existsSync(c)) {
+        chosenPath = c;
+        break;
       }
     }
 
-    tray = new Tray(trayIcon || iconPath);
+    if (!chosenPath) {
+      writeLog('Gagal menemukan file icon untuk System Tray');
+      return;
+    }
+
+    if (chosenPath.endsWith('.ico')) {
+      tray = new Tray(chosenPath);
+    } else {
+      let trayImage = nativeImage.createFromPath(chosenPath);
+      if (!trayImage.isEmpty()) {
+        trayImage = trayImage.resize({ width: 16, height: 16 });
+      }
+      tray = new Tray(trayImage);
+    }
+
     tray.setToolTip('Loony - Asisten AI & Produktivitas');
 
     tray.on('click', () => {

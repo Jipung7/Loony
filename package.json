@@ -1,6 +1,6 @@
 {
   "name": "loony",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Loony Gen 2 — AI Companion & Minimalist Productivity System",
   "author": "Jipung (Lone Steed Studio)",
   "license": "MIT",
@@ -34,7 +34,11 @@
     "files": [
       "dist/**/*",
       "electron/**/*",
+      "public/**/*",
       "package.json"
+    ],
+    "asarUnpack": [
+      "electron/*.ps1"
     ],
     "win": {
       "target": [

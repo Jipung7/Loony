@@ -68,6 +68,23 @@ try {
     $mgr = Invoke-WinRtAwait ([Windows.Media.Control.GlobalSystemMediaTransportControlsSessionManager]::RequestAsync()) ([Windows.Media.Control.GlobalSystemMediaTransportControlsSessionManager])
     if ($null -ne $mgr) {
         $gsmtcSession = $mgr.GetCurrentSession()
+        if ($null -eq $gsmtcSession) {
+            $allSessions = $mgr.GetSessions()
+            if ($null -ne $allSessions) {
+                foreach ($s in $allSessions) {
+                    try {
+                        $pb = $s.GetPlaybackInfo()
+                        if ($null -ne $pb -and $pb.PlaybackStatus.ToString() -eq "Playing") {
+                            $gsmtcSession = $s
+                            break
+                        }
+                    } catch {}
+                }
+                if ($null -eq $gsmtcSession -and $allSessions.Count -gt 0) {
+                    $gsmtcSession = $allSessions[0]
+                }
+            }
+        }
     }
 } catch {
     $gsmtcSession = $null
@@ -120,6 +137,23 @@ $source = ""
 try {
     if ($null -ne $mgr) {
         $gsmtcSession = $mgr.GetCurrentSession()
+        if ($null -eq $gsmtcSession) {
+            $allSessions = $mgr.GetSessions()
+            if ($null -ne $allSessions) {
+                foreach ($s in $allSessions) {
+                    try {
+                        $pb = $s.GetPlaybackInfo()
+                        if ($null -ne $pb -and $pb.PlaybackStatus.ToString() -eq "Playing") {
+                            $gsmtcSession = $s
+                            break
+                        }
+                    } catch {}
+                }
+                if ($null -eq $gsmtcSession -and $allSessions.Count -gt 0) {
+                    $gsmtcSession = $allSessions[0]
+                }
+            }
+        }
     }
     if ($null -ne $gsmtcSession) {
         $info = Invoke-WinRtAwait ($gsmtcSession.TryGetMediaPropertiesAsync()) ([Windows.Media.Control.GlobalSystemMediaTransportControlsSessionMediaProperties])
@@ -136,8 +170,8 @@ try {
     }
 } catch {}
 
-# Fallback: Jika GSMTC kosong, cek judul jendela aplikasi pemutar musik / browser
-if ([string]::IsNullOrWhiteSpace($title)) {
+# Fallback: Jika GSMTC kosong atau tidak terdeteksi playing, cek judul jendela aplikasi pemutar musik / browser
+if ([string]::IsNullOrWhiteSpace($title) -or -not $isPlaying) {
     try {
         $procs = Get-Process -Name "Spotify","vlc","Music.UI","AIMP","foobar2000","wmplayer","chrome","msedge","brave","firefox","opera" -ErrorAction SilentlyContinue | Where-Object { $_.MainWindowTitle -ne "" }
         foreach ($p in $procs) {
@@ -165,12 +199,12 @@ if ([string]::IsNullOrWhiteSpace($title)) {
                     $source = $p.ProcessName
                     break
                 }
-            } elseif ($wTitle -match "YouTube|Spotify|SoundCloud|Apple Music") {
+            } elseif ($wTitle -match "YouTube|Spotify|SoundCloud|Apple Music|Noice|Podcast|Music|Lagu|Audio|Deezer|Tidal|Joox") {
                 $clean = $wTitle -replace "\s*-\s*(Google Chrome|Microsoft\s*Edge|Brave|Mozilla Firefox|Opera).*$",""
                 $clean = $clean -replace "\s*-\s*YouTube(\s+Music)?$",""
                 if (-not [string]::IsNullOrWhiteSpace($clean)) {
                     $title = $clean
-                    $artist = "Browser Media"
+                    $artist = "Media Pemutar"
                     $isPlaying = $true
                     $source = $p.ProcessName
                     break

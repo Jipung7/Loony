@@ -40,6 +40,7 @@ import type { AiProviderType, AiTestResult } from '../services/aiEngine';
 import { parseQuickInputLocal } from '../services/smartParser';
 import { getLocalApiBase } from '../services/syncAndBridge';
 import { QrCodeView } from './QrCodeView';
+import { copyToClipboard } from '../utils/clipboard';
 import { AppFontStyle, BridgeFileItem, IdeaTag, ThemeMode } from '../types';
 
 type MobileToolId =
@@ -180,13 +181,8 @@ export const MobileCompanion: React.FC<{ onExitPreview?: () => void }> = ({ onEx
     window.setTimeout(() => setQuickFeedback(null), 3500);
   };
 
-  const handleCopyItem = (id: string, text: string) => {
-    if (navigator.clipboard?.writeText) {
-      navigator.clipboard.writeText(text).catch(() => {});
-    }
-    if (window.electronAPI?.writeClipboard) {
-      window.electronAPI.writeClipboard(text).catch(() => {});
-    }
+  const handleCopyItem = async (id: string, text: string) => {
+    await copyToClipboard(text);
     setCopiedId(id);
     window.setTimeout(() => setCopiedId(null), 1600);
   };
@@ -398,16 +394,24 @@ export const MobileCompanion: React.FC<{ onExitPreview?: () => void }> = ({ onEx
                   </div>
 
                   {clipboardHistory.length > 0 && (
-                    <div className="text-[11px] text-zinc-300 p-2 rounded-xl bg-zinc-950 border border-white/10 flex items-center justify-between">
-                      <span className="truncate pr-2">{clipboardHistory[0].content}</span>
+                    <div className="text-[11px] text-zinc-300 p-2 rounded-xl bg-zinc-950 border border-white/10 flex items-center justify-between gap-2">
+                      <span className="truncate pr-1 select-text font-mono flex-1">{clipboardHistory[0].content}</span>
                       <button
                         type="button"
                         onClick={() =>
                           handleCopyItem(clipboardHistory[0].id, clipboardHistory[0].content)
                         }
-                        className="px-2 py-0.5 rounded bg-zinc-800 text-[10px] text-zinc-200 shrink-0"
+                        className="px-2.5 py-1 rounded-lg bg-zinc-800 text-[10px] font-semibold text-zinc-200 shrink-0 cursor-pointer active:scale-95 transition flex items-center gap-1"
                       >
-                        {copiedId === clipboardHistory[0].id ? 'Disalin' : 'Salin'}
+                        {copiedId === clipboardHistory[0].id ? (
+                          <>
+                            <Check className="w-3 h-3 text-emerald-400" /> Disalin
+                          </>
+                        ) : (
+                          <>
+                            <Copy className="w-3 h-3" /> Salin
+                          </>
+                        )}
                       </button>
                     </div>
                   )}
@@ -645,18 +649,18 @@ export const MobileCompanion: React.FC<{ onExitPreview?: () => void }> = ({ onEx
                         key={item.id}
                         className="flex items-center justify-between gap-2 p-2.5 rounded-xl bg-zinc-900 border border-white/10"
                       >
-                        <div className="min-w-0 flex-1">
-                          <div className="text-xs text-zinc-100 truncate">{item.content}</div>
+                        <div className="min-w-0 flex-1 select-text">
+                          <div className="text-xs text-zinc-100 break-words select-text font-mono">{item.content}</div>
                           <div className="text-[10px] text-zinc-400">{item.deviceSource}</div>
                         </div>
                         <button
                           type="button"
                           onClick={() => handleCopyItem(item.id, item.content)}
-                          className="px-2.5 py-1.5 rounded-lg bg-zinc-800 text-zinc-100 text-[11px] flex items-center gap-1 border border-white/10 shrink-0 cursor-pointer"
+                          className="px-2.5 py-1.5 rounded-lg bg-zinc-800 text-zinc-100 text-[11px] flex items-center gap-1 border border-white/10 shrink-0 cursor-pointer active:scale-95 transition"
                         >
                           {copiedId === item.id ? (
                             <>
-                              <Check className="w-3 h-3" /> Disalin
+                              <Check className="w-3 h-3 text-emerald-400" /> Disalin
                             </>
                           ) : (
                             <>
