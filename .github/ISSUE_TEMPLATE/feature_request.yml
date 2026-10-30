@@ -1,0 +1,37 @@
+name: 💡 Usulan Fitur / Ide Baru
+description: Sarankan fitur, ekspresi mata robot [■━■], atau widget baru untuk Loony
+title: "[Idea]: "
+labels: ["enhancement", "discussion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Punya ide seru buat bikin Loony makin hidup dan fungsional? Ceritakan di sini!
+  - type: dropdown
+    id: category
+    attributes:
+      label: Kategori Fitur
+      options:
+        - 🤖 Ekspresi Mata Robot / Maskot Baru
+        - 🧲 Kapsul Dynamic Island & Overlay
+        - 🌉 Instant Bridge (HP ⇄ Laptop)
+        - 💰 Keuangan (Safe-to-Spend) & Catatan
+        - ⚙️ Pengaturan & Sistem
+    validations:
+      required: true
+  - type: textarea
+    id: problem_statement
+    attributes:
+      label: Masalah Apa yang Ingin Kamu Pecahkan?
+      description: Jelaskan situasi nyata di mana fitur ini akan sangat berguna.
+      placeholder: Kadang saya ingin tahu sisa baterai laptop langsung dari kapsul tanpa klik taskbar...
+    validations:
+      required: true
+  - type: textarea
+    id: solution_proposal
+    attributes:
+      label: Rancangan Solusi yang Kamu Bayangkan
+      description: Bagaimana bentuk interaksi atau tampilannya?
+      placeholder: Kapsul menampilkan bar baterai kecil saat persentase di bawah 20%...
+    validations:
+      required: true

@@ -1,0 +1,53 @@
+name: 🐛 Laporkan Masalah / Bug Report
+description: Laporkan kendala teknis atau perilaku aneh pada Loony Gen 2
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Terima kasih sudah meluangkan waktu melaporkan kendala di Loony Gen 2! Mohon berikan detail sistem agar kami bisa mereproduksi dan memperbaikinya dengan cepat.
+  - type: dropdown
+    id: package_type
+    attributes:
+      label: Varian Aplikasi yang Digunakan
+      options:
+        - Loony Setup (.exe Installer)
+        - Loony Portable (.exe Tanpa Instal)
+        - Menjalankan dari Source Code (npm run dev)
+    validations:
+      required: true
+  - type: dropdown
+    id: os_version
+    attributes:
+      label: Versi Sistem Operasi
+      options:
+        - Windows 11 (64-bit)
+        - Windows 10 (64-bit)
+        - Lainnya
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Deskripsi Masalah
+      description: Jelaskan apa yang terjadi dan apa yang seharusnya terjadi.
+      placeholder: Kapsul Loony tidak melar saat didekati kursor...
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction_steps
+    attributes:
+      label: Langkah Reproduksi (Langkah-demi-Langkah)
+      description: Bagaimana cara memicu kendala ini?
+      placeholder: |
+        1. Buka Loony
+        2. Geser kapsul ke pojok kanan
+        3. Klik tombol x...
+    validations:
+      required: true
+  - type: textarea
+    id: logs_or_screenshot
+    attributes:
+      label: Tangkapan Layar atau Log Tambahan
+      description: Seret gambar atau tempel pesan error jika ada.

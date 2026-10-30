@@ -1,7 +1,23 @@
 {
   "name": "loony",
   "version": "1.0.1",
-  "description": "Loony Gen 2 — AI Companion & Minimalist Productivity System",
+  "description": "Tactile Dynamic Island & desktop companion for Windows. Offline-first productivity island with phone-to-PC bridge and safe-to-spend budgeting.",
+  "keywords": [
+    "desktop-companion",
+    "dynamic-island",
+    "windows",
+    "windows-11",
+    "productivity",
+    "offline-first",
+    "clipboard-manager",
+    "file-transfer",
+    "budget-tracker",
+    "habit-tracker",
+    "prayer-times",
+    "electron",
+    "react19",
+    "open-source"
+  ],
   "author": "Jipung (Lone Steed Studio)",
   "license": "MIT",
   "repository": {
