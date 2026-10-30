@@ -46,9 +46,14 @@ Tanpa akun cloud. Tanpa pelacakan data. Murni alat bantu yang andal untuk mejamu
 ## Kemampuan Utama
 
 ### 1. Kapsul Obsidian Ringkas & Holo-Visor
-- **Menempel Magnetis:** Geser kapsul ke mana saja di layar monitor. Lepaskan di dekat tepi layar, dan kapsul otomatis menempel halus dengan animasi pegas alami.
+- **Fisika Pegas Kenyal (Tactile Spring):** Sentuh, geser, atau lepaskan kapsul untuk merasakan pantulan pegas kenyal yang responsif bertenaga Framer Motion.
+- **Menempel Magnetis:** Lepaskan di dekat tepi layar monitor mana pun, dan kapsul otomatis menempel halus dengan redaman magnetis.
 - **Overlay Tembus Klik (Win32 Click-Through):** Area transparan di sekitar kapsul 100% tembus klik mouse, sehingga kamu tetap bisa berinteraksi bebas dengan aplikasi atau editor di belakangnya.
 - **Mata Robot Ekspresif (`[■━■]`):** Holo-Visor bisa berkedip, tertidur saat kamu beranjak dari meja, tersenyum saat didekati kursor, dan bergoyang pelan mengikuti musik yang sedang diputar di PC.
+
+<p align="center">
+  <img src="assets/loony-bounce.gif" alt="Animasi interaksi kenyal dan fisika pegas Loony" width="480" style="border-radius: 10px; box-shadow: 0 8px 25px rgba(0,0,0,0.35);" />
+</p>
 
 <p align="center">
   <img src="assets/loony-dock.gif" alt="Animasi kapsul Loony menempel magnetis di tepi layar" width="480" style="border-radius: 10px; box-shadow: 0 6px 20px rgba(0,0,0,0.3);" />

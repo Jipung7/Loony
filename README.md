@@ -46,9 +46,14 @@ No cloud accounts. No telemetry. Just a reliable companion on your desktop.
 ## Core Capabilities
 
 ### 1. Compact Obsidian Capsule & Holo-Visor
-- **Edge Snapping:** Drag the capsule anywhere across your monitors. Release near any screen edge, and it smoothly snaps into place with natural spring physics.
+- **Tactile Spring Physics:** Tap, drag, or release the capsule to feel the bouncy spring physics powered by Framer Motion.
+- **Edge Snapping:** Release near any screen edge, and it smoothly snaps into place with magnetic dampening.
 - **Win32 Click-Through Overlay:** Transparent areas surrounding the capsule let mouse clicks pass directly through to your editor, browser, or game underneath.
 - **Expressive Robot Eyes (`[■━■]`):** The Holo-Visor blinks, sleeps when you are away, purrs when hovered, and bobs gently along with music playing on your system.
+
+<p align="center">
+  <img src="assets/loony-bounce.gif" alt="Loony tactile spring physics and bounce animation" width="480" style="border-radius: 10px; box-shadow: 0 8px 25px rgba(0,0,0,0.35);" />
+</p>
 
 <p align="center">
   <img src="assets/loony-dock.gif" alt="Loony capsule magnetic docking and spring physics" width="480" style="border-radius: 10px; box-shadow: 0 6px 20px rgba(0,0,0,0.3);" />
