@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Jipung7/Loony/releases/latest"><img src="https://img.shields.io/badge/Versi-v1.0.1-6366f1?style=flat-square" alt="Versi"></a>
+  <a href="https://github.com/Jipung7/Loony/releases/latest"><img src="https://img.shields.io/badge/Versi-v1.0.2-6366f1?style=flat-square" alt="Versi"></a>
   <a href="#"><img src="https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011-0078d4?style=flat-square" alt="Windows 10 dan 11"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/Lisensi-MIT-emerald?style=flat-square" alt="Lisensi MIT"></a>
   <a href="#"><img src="https://img.shields.io/badge/Arsitektur-Offline--First%20%7C%20LAN-amber?style=flat-square" alt="Offline First dan Local LAN"></a>
@@ -26,8 +26,9 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Jipung7/Loony/releases/download/v1.0.1/Loony-Setup-v1.0.1.exe"><strong>Unduh Versi Installer (.exe)</strong></a> • 
-  <a href="https://github.com/Jipung7/Loony/releases/download/v1.0.1/Loony-Portable-v1.0.1.exe"><strong>Unduh Versi Portabel (.exe)</strong></a> • 
+  <a href="https://github.com/Jipung7/Loony/releases/download/v1.0.2/Loony-Setup-v1.0.2.exe"><strong>Unduh Versi Installer (.exe)</strong></a> • 
+  <a href="https://github.com/Jipung7/Loony/releases/download/v1.0.2/Loony-Portable-v1.0.2.exe"><strong>Unduh Versi Portabel (.exe)</strong></a> • 
+  <a href="CHANGELOG.md">Riwayat Versi (Changelog)</a> • 
   <a href="https://github.com/Jipung7/Loony/releases/latest">Catatan Rilis</a>
 </p>
 
@@ -101,8 +102,8 @@ Loony gratis dan bersumber terbuka. Pilih paket yang paling cocok untuk alur ker
 
 | Paket | Kebutuhan Penggunaan | Arsitektur | Tautan Unduh |
 | :--- | :--- | :---: | :--- |
-| **Loony Setup (v1.0.1)** | Pemasangan standar (otomatis buat shortcut dan pembaruan) | Windows x64 | [Unduh Setup (.exe)](https://github.com/Jipung7/Loony/releases/download/v1.0.1/Loony-Setup-v1.0.1.exe) |
-| **Loony Portable (v1.0.1)** | Berkas tunggal mandiri (cocok untuk flashdisk, tanpa instalasi) | Windows x64 | [Unduh Versi Portabel (.exe)](https://github.com/Jipung7/Loony/releases/download/v1.0.1/Loony-Portable-v1.0.1.exe) |
+| **Loony Setup (v1.0.2)** | Pemasangan standar (otomatis buat shortcut dan pembaruan) | Windows x64 | [Unduh Setup (.exe)](https://github.com/Jipung7/Loony/releases/download/v1.0.2/Loony-Setup-v1.0.2.exe) |
+| **Loony Portable (v1.0.2)** | Berkas tunggal mandiri (cocok untuk flashdisk, tanpa instalasi) | Windows x64 | [Unduh Versi Portabel (.exe)](https://github.com/Jipung7/Loony/releases/download/v1.0.2/Loony-Portable-v1.0.2.exe) |
 
 ### Kebutuhan Sistem
 - **Sistem Operasi:** Windows 10 (64-bit) atau Windows 11.

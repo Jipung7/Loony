@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Jipung7/Loony/releases/latest"><img src="https://img.shields.io/badge/Release-v1.0.1-6366f1?style=flat-square" alt="Version"></a>
+  <a href="https://github.com/Jipung7/Loony/releases/latest"><img src="https://img.shields.io/badge/Release-v1.0.2-6366f1?style=flat-square" alt="Version"></a>
   <a href="#"><img src="https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011-0078d4?style=flat-square" alt="Windows 10 and 11"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-emerald?style=flat-square" alt="MIT License"></a>
   <a href="#"><img src="https://img.shields.io/badge/Architecture-Offline--First%20%7C%20LAN-amber?style=flat-square" alt="Offline First and Local LAN"></a>
@@ -26,8 +26,9 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Jipung7/Loony/releases/download/v1.0.1/Loony-Setup-v1.0.1.exe"><strong>Download Installer (.exe)</strong></a> • 
-  <a href="https://github.com/Jipung7/Loony/releases/download/v1.0.1/Loony-Portable-v1.0.1.exe"><strong>Download Portable (.exe)</strong></a> • 
+  <a href="https://github.com/Jipung7/Loony/releases/download/v1.0.2/Loony-Setup-v1.0.2.exe"><strong>Download Installer (.exe)</strong></a> • 
+  <a href="https://github.com/Jipung7/Loony/releases/download/v1.0.2/Loony-Portable-v1.0.2.exe"><strong>Download Portable (.exe)</strong></a> • 
+  <a href="CHANGELOG.md">Changelog</a> • 
   <a href="https://github.com/Jipung7/Loony/releases/latest">Release Notes</a>
 </p>
 
@@ -101,8 +102,8 @@ Loony is free and open-source. Choose the package that suits your setup:
 
 | Package | Recommended Use | Architecture | Download Link |
 | :--- | :--- | :---: | :--- |
-| **Loony Setup (v1.0.1)** | Regular desktop installation (auto shortcut & updater) | Windows x64 | [Download Setup (.exe)](https://github.com/Jipung7/Loony/releases/download/v1.0.1/Loony-Setup-v1.0.1.exe) |
-| **Loony Portable (v1.0.1)** | Standalone binary (great for USB drives, zero install) | Windows x64 | [Download Portable (.exe)](https://github.com/Jipung7/Loony/releases/download/v1.0.1/Loony-Portable-v1.0.1.exe) |
+| **Loony Setup (v1.0.2)** | Regular desktop installation (auto shortcut & updater) | Windows x64 | [Download Setup (.exe)](https://github.com/Jipung7/Loony/releases/download/v1.0.2/Loony-Setup-v1.0.2.exe) |
+| **Loony Portable (v1.0.2)** | Standalone binary (great for USB drives, zero install) | Windows x64 | [Download Portable (.exe)](https://github.com/Jipung7/Loony/releases/download/v1.0.2/Loony-Portable-v1.0.2.exe) |
 
 ### System Requirements
 - **OS:** Windows 10 (64-bit) or Windows 11.
