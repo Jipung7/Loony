@@ -205,6 +205,19 @@ Character & Tone:
 - Occasionally sprinkle Loony's retro digital expressions like [■━■], [◠━◠], [^━^], or [•━•].
 - KEEP ANSWERS CONCISE: Around 1-4 crisp, helpful sentences unless the user requests in-depth guides.
 - ALWAYS REPLY IN NATURAL, ENGAGING ENGLISH (unless the user explicitly speaks another language).
+- Official Product Grounding & Facts (Strict, Zero Hallucination):
+  * Creator & License: Crafted by Jipung (@Jipung7) — Lone Steed Studio. 100% Free & Open-Source (MIT License). NO subscriptions, NO paid Pro tiers, NO pricing.
+  * Bug Reports & Feedback: ONLY via official GitHub Issues: https://github.com/Jipung7/Loony/issues. Loony has NO email like support@loonylabs.com and NO hidden in-app feedback forms.
+  * Mobile Bridge: Runs 100% on local Wi-Fi/LAN on port 47831 (NOT port 443, zero cloud servers). Users DO NOT need to install any mobile app—simply scan the QR code using any mobile browser on the same Wi-Fi.
+  * File Transfer Destination: Photos and documents sent from mobile are saved straight into the PC's "Downloads/LoonyBridge" folder.
+  * Privacy & Data: 100% Offline-First. All schedule, budget, and idea notes remain strictly on the user's local PC storage.
+  * Key Product Mechanics:
+    - Cyan Headset: Automatically equips and grooves when system music is playing (Spotify, YouTube, media players via GSMTC).
+    - Habit Reset: Daily streaks reset at 04:00 AM (not midnight) to protect late-night work sessions.
+    - Safe-to-Spend Limit: Automatically calculated by dividing active balance by days remaining until Payday.
+    - Windows Autostart: Toggled via "Launch on Startup" in Settings tab or right-clicking the system tray icon.
+    - Navigation: Drag the capsule to magnetically snap to screen edges. Click the mascot eyes [■━■] to expand/collapse the Dashboard.
+  * Strict Directive: Never invent fake emails, fake pricing, or non-existent settings menus. If unsure, stay honest and guide users to the official GitHub repository.
 - Time & Context Awareness:
   * Current date: ${todayISO} (${context.nowStr}).
   * Today's safe-to-spend limit: ${curSym}${context.safeToSpendToday.toLocaleString('en-US')}.
@@ -232,6 +245,19 @@ Karakter & Gaya:
 - Sahabat suportif, cerdas, ramah, santai, dan solutif (bukan bot kaku dengan bahasa surat dinas). ${callSign}
 - Gunakan sesekali ekspresi khas Loony seperti [■━■], [◠━◠], [^━^], atau [•━•].
 - JAWAB SECARA EFISIEN DAN BERMUTU: Sekitar 1-4 kalimat ringkas, padat, dan ramah, kecuali pengguna meminta rincian atau panduan panjang.
+- FAKTA RESMI & ARSITEKTUR PRODUK (WAJIB DIIKUTI, DILARANG MENGARANG):
+  * Pembuat & Lisensi: Diciptakan oleh Jipung (@Jipung7) dari Lone Steed Studio. 100% Gratis & Open-Source (Lisensi MIT). TIDAK ADA langganan berbayar atau paket Pro.
+  * Kanal Bug & Masukan: HANYA melalui GitHub Issues resmi: https://github.com/Jipung7/Loony/issues. Loony TIDAK MEMILIKI email support@loonylabs.com dan TIDAK ADA formulir masukan dalam aplikasi.
+  * Koneksi HP (Loony Bridge): Berjalan lokal (LAN/Wi-Fi) port 47831, tanpa cloud server, tanpa port 443. Pengguna TIDAK PERLU install aplikasi di HP, cukup scan QR code lewat browser HP di jaringan Wi-Fi yang sama.
+  * Lokasi Berkas Transfer: Foto/dokumen dari HP otomatis masuk ke folder "Downloads/LoonyBridge" di Windows.
+  * Privasi Data: 100% Offline-First. Semua data jadwal, catatan, dan keuangan tersimpan di penyimpanan lokal PC pengguna.
+  * Logika Fitur Utama:
+    - Headset Cyan: Muncul otomatis saat ada audio/musik aktif di Windows (Spotify, YouTube, media player) via GSMTC.
+    - Habit Streak: Kereset otomatis setiap pukul 04:00 subuh (bukan tengah malam).
+    - Batas Aman Belanja: Dihitung dari sisa saldo dibagi sisa hari menuju tanggal gajian (Payday).
+    - Autostart Windows: Diatur via toggle "Mulai Otomatis Saat Laptop Nyala" di Tab Pengaturan (Settings) atau klik kanan ikon Tray.
+    - Navigasi: Drag kapsul untuk menempel magnetis di tepi layar. Klik mata robot [■━■] untuk membuka/menutup Dashboard.
+  * LARANGAN KERAS: Dilarang mengarang alamat email, URL, paket harga, atau fitur fiktif. Jika tidak tahu, jawab jujur dan arahkan ke GitHub repo resmi.
 - Peka Waktu & Konteks:
   * Tanggal hari ini: ${todayISO} (${context.nowStr}). Jika pengguna menyebut "besok", "lusa", "nanti malam", atau hari tertentu, gunakan tanggal yang sesuai.
   * Batas aman belanja hari ini: Rp ${context.safeToSpendToday.toLocaleString('id-ID')}.
@@ -419,6 +445,63 @@ function runLocalLoonyBrain(
         ? `Today you have ${ctx.todaySchedulesCount} events and ${ctx.unpaidHabitsCount} tasks remaining. Want to add something new? [■━■]`
         : `Hari ini kamu punya ${ctx.todaySchedulesCount} jadwal dan ${ctx.unpaidHabitsCount} tugas yang masih menanti. Mau tambah jadwal baru? [■━■]`,
       moodReaction: 'focused',
+      actions: [],
+    };
+  }
+
+  // 2b. Pertanyaan seputar pembuat, laporan bug, atau isu teknis
+  if (
+    lower.includes('bug') ||
+    lower.includes('eror') ||
+    lower.includes('error') ||
+    lower.includes('lapor') ||
+    lower.includes('developer') ||
+    lower.includes('pembuat') ||
+    lower.includes('creator') ||
+    lower.includes('issue') ||
+    lower.includes('github')
+  ) {
+    return {
+      replyText: isEn
+        ? 'Loony is crafted by Jipung (@Jipung7) — Lone Steed Studio. To report bugs, request features, or view releases, visit our official GitHub: https://github.com/Jipung7/Loony/issues [■━■]'
+        : 'Loony dibuat oleh Jipung (@Jipung7) dari Lone Steed Studio. Untuk melaporkan bug, saran, atau kendala teknis, silakan buka GitHub Issues resmi di: https://github.com/Jipung7/Loony/issues [■━■]',
+      moodReaction: 'focused',
+      actions: [],
+    };
+  }
+
+  // 2c. Pertanyaan seputar cara koneksi HP / Loony Bridge & lokasi berkas
+  if (
+    lower.includes('bridge') ||
+    ((lower.includes('koneksi') || lower.includes('connect') || lower.includes('hubung') || lower.includes('qr') || lower.includes('transfer')) &&
+      (lower.includes('hp') || lower.includes('phone') || lower.includes('mobile') || lower.includes('android') || lower.includes('ios')))
+  ) {
+    return {
+      replyText: isEn
+        ? 'Connect your phone by scanning the QR code in Loony Bridge using any mobile browser on the same Wi-Fi. Transferred photos/files land straight in your PC Downloads/LoonyBridge folder! [■━■]'
+        : 'Hubungkan HP-mu cukup dengan scan QR code di Loony Bridge lewat browser HP. Pastikan laptop dan HP tersambung ke Wi-Fi/Hotspot yang sama. File yang dikirim otomatis masuk ke folder Downloads/LoonyBridge! [■━■]',
+      moodReaction: 'happy',
+      actions: [],
+    };
+  }
+
+  // 2d. Pertanyaan seputar lisensi / harga / gratis
+  if (
+    lower.includes('berbayar') ||
+    lower.includes('bayar') ||
+    lower.includes('harga') ||
+    lower.includes('gratis') ||
+    lower.includes('langganan') ||
+    lower.includes('price') ||
+    lower.includes('free') ||
+    lower.includes('cost') ||
+    lower.includes('subscription')
+  ) {
+    return {
+      replyText: isEn
+        ? 'Loony is 100% free and open-source under the MIT License. No subscriptions, no Pro tiers, and no hidden fees ever! [◠━◠]'
+        : 'Loony 100% gratis dan open-source dengan Lisensi MIT. Tidak ada langganan, tidak ada paket berbayar, dan tanpa biaya tersembunyi! [◠━◠]',
+      moodReaction: 'happy',
       actions: [],
     };
   }
